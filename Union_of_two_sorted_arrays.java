@@ -9,6 +9,7 @@ public class Union_of_two_sorted_arrays {
         int[] farr = {99, 100, 25, -3, 42, 0, 17, -99, 56, 25, -7, 99};
         int[] sarr = {99, 100, 255, -4, 42, 0, 17, -999, 56, 25, -77, 99};
 
+        //first way:
         int count = 0;
         int[] uniarr  = new int[farr.length+sarr.length];
         for(int index=0; index<farr.length; index++){
@@ -24,6 +25,7 @@ public class Union_of_two_sorted_arrays {
         uniarr = Arrays.stream(uniarr).distinct().toArray();
         System.out.println(Arrays.toString(uniarr)+"\n"+count);
 
+        //Second way:
         Set<Integer> set = new LinkedHashSet<>();
         for(int value: farr){
             set.add(value);
@@ -34,6 +36,7 @@ public class Union_of_two_sorted_arrays {
         int[] unionArr = set.stream().mapToInt(Integer::intValue).toArray();
         System.out.println("set of first easy way: "+Arrays.toString(unionArr));
 
+        //Third way:
         List<Integer> flist = Arrays.stream(farr).boxed().toList();
         List<Integer> slist = Arrays.stream(sarr).boxed().toList();
         Set<Integer> finalset = new HashSet<>(flist);
@@ -41,6 +44,7 @@ public class Union_of_two_sorted_arrays {
         System.out.println(finalset);
 
 
+        //Fourth way:
         farr = Arrays.stream(farr).distinct().sorted().toArray();
         sarr = Arrays.stream(sarr).distinct().sorted().toArray();
         System.out.println(Arrays.toString(farr)+"\n"+Arrays.toString(sarr));
